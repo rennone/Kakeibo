@@ -1,0 +1,56 @@
+基本テーマはTheme.Lightで,アニメーションを追加する方法.
+
+(1) values/themes.xml を作成し,以下の様に記述
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- <style name="MyTheme" parent="android:Theme.Light">   だとうまく行かない-->
+    <style name="MyTheme" parent="@style/AppBaseTheme">
+<item name="android:windowAnimationStyle">@style/Animation.Activity</item> 
+    </style>
+</resources>
+
+(2) valuse/syle.xml に以下を追加
+  <style name="Animation.Activity" parent="android:Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_open_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_open_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_close_exit</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_close_exit</item>
+    </style>
+
+(3) animフォルダを作成し, 各アニメーションスタイルを記述したxmlファイルを作成.(今回は横にアニメーション)
+/* anim/activity_open_enter.xmlファイル */
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+android:interpolator="@android:anim/accelerate_interpolator">
+<translate android:fromXDelta="100%" android:toXDelta="0%"
+android:duration="@string/activity_animation_duration" 
+android:fillAfter="true"  android:fillEnabled="true"/>
+</set>
+
+/* anim/activity_open_exit.xmlファイル */
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+android:interpolator="@android:anim/accelerate_interpolator">
+<translate android:fromXDelta="0%" android:toXDelta="-100%"
+android:duration="@string/activity_animation_duration" 
+android:fillAfter="true"  android:fillEnabled="true"/>
+</set>
+
+/* anim/activity_close_enter.xmlファイル */
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+android:interpolator="@android:anim/accelerate_interpolator">
+<translate android:fromXDelta="-100%" android:toXDelta="0%"
+android:duration="@string/activity_animation_duration" 
+android:fillAfter="true"  android:fillEnabled="true"/>
+</set>
+
+/* anim/activity_close_exit.xmlファイル */
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+android:interpolator="@android:anim/accelerate_interpolator">
+<translate android:fromXDelta="0%" android:toXDelta="100%"
+android:duration="@string/activity_animation_duration" 
+android:fillAfter="true"  android:fillEnabled="true"/>
+</set>
+

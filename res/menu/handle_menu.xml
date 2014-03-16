@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+
+    <item
+        android:id="@+id/action_back"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_revert"/>
+
+    <item 
+        android:id="@+id/action_change_calendar"
+        android:orderInCategory="300"
+        android:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_my_calendar"
+        />
+    
+    <item 
+        android:id="@+id/action_save"
+        android:orderInCategory="400" 
+        android:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_save"/>     <!-- orderInCategoryは数が大きいほど下に表示される-->
+
+</menu>

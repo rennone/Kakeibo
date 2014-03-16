@@ -1,0 +1,11 @@
+setContentView()したのとは別のレイアウトを扱う場合，findViewById() は，
+該当レイアウト要素のメソッドとして呼び出す必要がある。
+例 class Alice (layout => R.laytout.my_layout_A)
+    class Bob  (layout => R.layout.my_layout_B)
+    
+    class Bob から my_layout_A にあるボタンR.id.btn1を呼び出す場合
+    
+      Button btn1 = (Button)findViewById(R.id.btn1);
+        ↓
+        Alice alice = new Alice(context)
+      Button btn1 = (Button)alice.findViewById(R.id.btn1);
